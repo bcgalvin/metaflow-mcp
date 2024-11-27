@@ -7,7 +7,7 @@ from metaflow_mcp import __version__
 
 app = typer.Typer(
     pretty_exceptions_show_locals=False,
-    help="Metaflow MCP CLI tool",
+    help="Metaflow MCP for client commands",
     no_args_is_help=True,
 )
 
@@ -15,7 +15,6 @@ console = Console(color_system="truecolor")
 
 
 def version_callback(value: bool) -> None:
-    """Print version and exit."""
     if value:
         console.print(f"metaflow-mcp version: {__version__}")
         raise typer.Exit(0)
@@ -32,11 +31,10 @@ def main(
         is_eager=True,
     ),
 ) -> None:
-    """Metaflow MCP CLI tool."""
+    """Metaflow MCP"""
 
 
 def run() -> None:
-    """Run the CLI application."""
     try:
         app()
     except typer.Exit:
